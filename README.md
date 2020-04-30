@@ -9,7 +9,7 @@ Create an account on each website and get your api key and token.
 
 ## Usage
 
-Fetch weather info by writing `node app "name of your city"`. If you want to proved a city name in more than one word you have to use double quotes around the input.
+Fetch weather info by writing `node app "name of your city"`. If you want to provide a city name in more than one word you have to use double quotes around the input.
 
 Example:
 
