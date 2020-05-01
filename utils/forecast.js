@@ -8,9 +8,9 @@ const forecast = (latitude, longitude, callback) => {
     const url = `${baseURL}/current?access_key=${apiKey}&query=${latitude},${longitude}`
     
     axios.get(url)
-    .then(( response ) => {
-        if (response.data.error) {
-            const error = response.data.error;
+    .then(( {data} ) => {
+        if (data.error) {
+            const error = data.error;
             //the callback here is adding data to the arguments in app.js 
             callback({
                 errorCode: error.code,
@@ -23,7 +23,7 @@ const forecast = (latitude, longitude, callback) => {
             //     longitude: response.data.location.lon
             // })
             //Alternative:
-            callback(undefined, `${response.data.current.weather_descriptions[0]}. It is currently ${response.data.current.temperature} degrees out. It feels like ${response.data.current.feelslike} degrees in ${response.data.location.country}.`)
+            callback(undefined, `${data.current.weather_descriptions[0]}. It is currently ${data.current.temperature} degrees out. It feels like ${data.current.feelslike} degrees in ${data.location.country}.`)
         }
     })
     .catch(( error ) => {
